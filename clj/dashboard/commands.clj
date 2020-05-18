@@ -67,7 +67,7 @@
      v-total]}]
   (clojure.java.shell/sh 
     "../hmy"
-    "--node=https://api.s0.os.hmny.io"
+    "--node=https://api.s0.t.hmny.io"
     "staking"
     "create-validator"
     "--validator-addr" wallet
@@ -101,7 +101,7 @@
     clojure.java.shell/sh 
     (concat
       ["../hmy"
-       "--node=https://api.s0.os.hmny.io"
+       "--node=https://api.s0.t.hmny.io"
        "staking" "edit-validator" "--validator-addr" wallet]
       (when v-name ["--name" v-name]) 
       (when v-identity ["--identity" v-identity]) 
@@ -122,7 +122,7 @@
   [{:keys [amount]}]
   (clojure.java.shell/sh 
     "../hmy"
-    "--node=https://api.s0.os.hmny.io"
+    "--node=https://api.s0.t.hmny.io"
     "staking"
     "delegate"
     "--delegator-addr" wallet
@@ -132,7 +132,7 @@
 (defn harvest-validator []
   (clojure.java.shell/sh 
     "../hmy"
-    "--node=https://api.s0.os.hmny.io"
+    "--node=https://api.s0.t.hmny.io"
     "staking"
     "collect-rewards"
     "--delegator-addr" wallet))
@@ -141,7 +141,7 @@
   (let [response 
         (clojure.java.shell/sh
           "../hmy"
-          "--node=https://api.s0.os.hmny.io"
+          "--node=https://api.s0.t.hmny.io"
           "blockchain" "validator"
           "information" wallet)]
     (when (or (= (:err response) "") (nil? (:err response)))
